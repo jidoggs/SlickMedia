@@ -33,7 +33,7 @@ function SearchBox({setRes}) {
       // make axios post request
       const response = await axios({
         method: "get",
-        url: `http://www.omdbapi.com/?s=${value}&page=2&apiKey=${process.env.REACT_APP_OMDB_API}`,
+        url: `https://mimmofranco.herokuapp.com/http://www.omdbapi.com/?s=${value}&page=2&apiKey=${process.env.REACT_APP_OMDB_API}`,
         headers: { "Content-Type": "multipart/form-data" },
       });
       

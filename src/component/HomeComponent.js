@@ -36,8 +36,8 @@ function HomeComponent() {
     
 
     useEffect(() => {
-     axios.get(`http://www.omdbapi.com/?s=action&page=2&apiKey=${process.env.REACT_APP_OMDB_API}`).then(res => setMockCategoryData(prev => ({...prev, action: res.data?.Search})))
-     axios.get(`http://www.omdbapi.com/?s=drama&page=2&apiKey=${process.env.REACT_APP_OMDB_API}`).then(res => setMockCategoryData(prev => ({...prev, drama: res.data?.Search})))
+     axios.get(`https://mimmofranco.herokuapp.com/http://www.omdbapi.com/?s=action&page=2&apiKey=${process.env.REACT_APP_OMDB_API}`).then(res => setMockCategoryData(prev => ({...prev, action: res.data?.Search})))
+     axios.get(`https://mimmofranco.herokuapp.com/http://www.omdbapi.com/?s=drama&page=2&apiKey=${process.env.REACT_APP_OMDB_API}`).then(res => setMockCategoryData(prev => ({...prev, drama: res.data?.Search})))
     }, [])
 
   return (
