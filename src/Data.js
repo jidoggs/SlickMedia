@@ -1,0 +1,1 @@
+export const heroText = "Watch something incredible."
