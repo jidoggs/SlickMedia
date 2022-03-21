@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import styled from "styled-components";
 const StyledSearch = styled.form`
@@ -22,13 +23,36 @@ const StyledSearch = styled.form`
   }
 `;
 
-function SearchBox() {
+function SearchBox({setRes}) {
   const [value, setValue] = useState("");
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
     console.log(value);
+    try {
+      // make axios post request
+      const response = await axios({
+        method: "get",
+        url: `http://www.omdbapi.com/?s=${value}&page=2&apiKey=${process.env.REACT_APP_OMDB_API}`,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      
+      console.log(response)
+
+      if (response.data?.Response === "True") {
+      response &&  setRes(response.data?.Search)
+      }
+      else{
+        throw Error
+      }
+
+    } catch(error) {
+      console.log(error)
+    }
+
+    setValue("")
   };
+
 
   return (
     <StyledSearch onSubmit={onSubmitHandler}>

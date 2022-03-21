@@ -17,6 +17,8 @@ const StyledMovieCard = styled.div`
   line-height: 31px;
   letter-spacing: 0em;
 
+  background-size:cover;
+
   @media (max-width: 425px) {
     width:200px;
     height:200px;
@@ -25,8 +27,8 @@ const StyledMovieCard = styled.div`
   
 `;
 
-function MovieCard({ title }) {
-  return <StyledMovieCard>{title}</StyledMovieCard>;
+function MovieCard({ title,image }) {
+  return <StyledMovieCard style={{backgroundImage:`url(${image})`}} >{title}</StyledMovieCard>;
 }
 
 export default MovieCard;

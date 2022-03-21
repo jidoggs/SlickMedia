@@ -34,7 +34,7 @@ function MovieCategory({ categoryName, categoryArray }) {
 
       <StyledCarousal>
         {categoryArray?.map((movie, id) => {
-          return <MovieCard key={id} title={movie} />;
+          return <MovieCard key={id} title={movie?.Title} image={movie?.Poster} />;
         })}
       </StyledCarousal>
     </StyledCategory>
